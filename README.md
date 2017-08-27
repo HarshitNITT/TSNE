@@ -88,10 +88,10 @@ We will take arbitrary value of m,b and move downhill to the global minima.
 ```
 To run gradient descent on this error function, we first need to compute its gradient. The gradient will act like a compass and always point us downhill. To compute it, we will need to differentiate our error function. Since our function is defined by two parameters (m and b), we will need to compute a partial derivative for each. These derivatives work out to be:
 ```
-![](http://www.sciweavers.org/upload/Tex2Img_1503845853/render.png)
-![](http://www.sciweavers.org/upload/Tex2Img_1503845937/render.png)
+![](http://www.sciweavers.org/upload/Tex2Img_1503846278/render.png)
+![](http://www.sciweavers.org/upload/Tex2Img_1503846250/render.png)
 
->We can initialize our search to start at any pair of m and b values (i.e., any line) and let the gradient descent algorithm march downhill on our error function towards the best line. Each iteration will update m and b to a line that yields slightly lower error than the previous iteration.
+We can initialize our search to start at any pair of m and b values (i.e., any line) and let the gradient descent algorithm march downhill on our error function towards the best line. Each iteration will update m and b to a line that yields slightly lower error than the previous iteration.
 ```python
 def stepGradient(b_current, m_current, points, learningRate):
     b_gradient = 0
