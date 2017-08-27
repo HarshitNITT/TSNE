@@ -29,8 +29,9 @@ Since we are only interested in pairwise similarities between points, t-SNE sets
 ```
 > ![](http://www.sciweavers.org/upload/Tex2Img_1503836598/render.png)
 
-> ![image](http://www.sciweavers.org/upload/Tex2Img_1503836873/render.png)
-> ![image](http://www.sciweavers.org/upload/Tex2Img_1503836941/render.png)
+> ![](http://www.sciweavers.org/upload/Tex2Img_1503836873/render.png)
+
+> ![](http://www.sciweavers.org/upload/Tex2Img_1503836941/render.png)
 ```
 The aim of Tsne is to model high dimensional vectors into low dimensional vectors such that similarity between two points qij which represent similarity in the low dimensional space of the counterparts yi and yj in low dimwnsional space. The error between the input similarities pij and their counterparts in the low-dimensional map q ij is measured by means of the Kullback-Leibler divergence between the distributions.
 
