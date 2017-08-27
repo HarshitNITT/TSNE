@@ -22,24 +22,30 @@ This solves the problem of non metric spaces.
 ```
 ## Mathematics Behind the Single map TSNE
 ```
-Given n high Dimensional vectors  x 1 , … , x N  t-SNE first computes probabilities p i j {\displaystyle p_{ij}} p_{ij} that are proportional to the similarity of objects x i {\displaystyle \mathbf {x} _{i}} \mathbf {x} _{i} and x j {\displaystyle \mathbf {x} _{j}} \mathbf {x} _{j}, as follows:
-[]("https://wikimedia.org/api/rest_v1/media/math/render/svg/2cc3ef3b4d237787cd82e5ef638d96d642a1e43d")
-The similarity of datapoint x j {\displaystyle x_{j}} x_{j} to datapoint x i {\displaystyle x_{i}} x_{i} is the conditional probability, p j | i {\displaystyle p_{j|i}} {\displaystyle p_{j|i}}, that x i {\displaystyle x_{i}} x_{i} would pick x j {\displaystyle x_{j}} x_{j} as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at x i.
+Given n high Dimensional vectors  x 1 , … , x N  t-SNE first computes probabilities p i j {\displaystyle p_{ij}} p_{ij} that are proportional to the similarity of objects x i as follows:
+```
+![](http://www.sciweavers.org/upload/Tex2Img_1503836598/render.png)
+
+![](http://www.sciweavers.org/upload/Tex2Img_1503836873/render.png)
+
+![](http://www.sciweavers.org/upload/Tex2Img_1503836941/render.png)
+
+The similarity of datapoint x j  to datapoint x i  is the conditional probability, p j | i , that x i would pick x j  as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at x i.
 Since we are only interested in pairwise similarities between points, t-SNE sets p ii=0.
 ```
-> ![](http://www.sciweavers.org/upload/Tex2Img_1503836598/render.png)
+```
 
-> ![](http://www.sciweavers.org/upload/Tex2Img_1503836873/render.png)
-
-> ![](http://www.sciweavers.org/upload/Tex2Img_1503836941/render.png)
+```
 ```
 The aim of Tsne is to model high dimensional vectors into low dimensional vectors such that similarity between two points qij which represent similarity in the low dimensional space of the counterparts yi and yj in low dimwnsional space. The error between the input similarities pij and their counterparts in the low-dimensional map q ij is measured by means of the Kullback-Leibler divergence between the distributions.
-
+```
+![](http://www.sciweavers.org/upload/Tex2Img_1503850658/render.png)
+```
 We need to minimize kullback divergance in order to have qij value similar to that of pij so that we can attain the internal structure of the map which is implemented using gradient descent
 ```
-> ![](http://www.sciweavers.org/upload/Tex2Img_1503832642/render.png)
+![](http://www.sciweavers.org/upload/Tex2Img_1503832642/render.png)
 
-> ![](http://www.sciweavers.org/upload/Tex2Img_1503837861/render.png)
+
 
 ## Mathematics Behind Multiple map Tsne
 ```
@@ -49,12 +55,14 @@ for all m for a particular i the π(m)i summation must be 1.
 So we redefine qij as follows:
 ```
 
-> ![](http://www.sciweavers.org/upload/Tex2Img_1503840704/render.png)
+![](http://www.sciweavers.org/upload/Tex2Img_1503840704/render.png)
 ```
 Because we require the importance weights π(m)i to be positive and we require the importance weights π (m) i for a single point i to sum up to 1 over all maps, direct optimization of the cost function w.r.t. the parameters π (m)i is tedious. To circumvent this problem, we represent the importance weights π(m)i in terms of unconstrained weight w(m)i (using an idea that is similar to that of softmax units) as follows:
 ```
-> ![](http://www.sciweavers.org/upload/Tex2Img_1503841227/render.png)
+![](http://www.sciweavers.org/upload/Tex2Img_1503841227/render.png)
 
+-----
+By defining the weights in this way they are positive all over the domain and sum upto 1. Also the optimization becomes simpler using gradient Descent.
 
 # Gradient Descent
 ```
@@ -89,6 +97,7 @@ We will take arbitrary value of m,b and move downhill to the global minima.
 To run gradient descent on this error function, we first need to compute its gradient. The gradient will act like a compass and always point us downhill. To compute it, we will need to differentiate our error function. Since our function is defined by two parameters (m and b), we will need to compute a partial derivative for each. These derivatives work out to be:
 ```
 ![](http://www.sciweavers.org/upload/Tex2Img_1503846278/render.png)
+
 ![](http://www.sciweavers.org/upload/Tex2Img_1503846250/render.png)
 
 We can initialize our search to start at any pair of m and b values (i.e., any line) and let the gradient descent algorithm march downhill on our error function towards the best line. Each iteration will update m and b to a line that yields slightly lower error than the previous iteration.
