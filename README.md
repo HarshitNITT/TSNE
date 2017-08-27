@@ -53,13 +53,15 @@ So we redefine qij as follows:
 ```
 
 ![](http://www.sciweavers.org/upload/Tex2Img_1503840704/render.png)
+
+
 ```
 Because we require the importance weights π(m)i to be positive and we require the importance weights π (m) i for a single point i to sum up to 1 over all maps, direct optimization of the cost function w.r.t. the parameters π (m)i is tedious. To circumvent this problem, we represent the importance weights π(m)i in terms of unconstrained weight w(m)i (using an idea that is similar to that of softmax units) as follows:
 ```
 ![](http://www.sciweavers.org/upload/Tex2Img_1503841227/render.png)
 
------
-By defining the weights in this way they are positive all over the domain and sum upto 1. Also the optimization becomes simpler using gradient Descent.
+
+By defining the weights in this way they are positive all over the domain and sum upto 1. Also the optimization becomes simpler using **stochastic gradient Descent**.
 
 # Gradient Descent
 ```
