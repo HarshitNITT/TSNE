@@ -47,9 +47,10 @@ Multiple maps t-SNE constructs a collection of M maps, all of which contain N po
 for all m for a particular i the π(m)i summation must be 1.
 
 So we redefine qij as follows:
+```
 
-
- ![]("https://wikimedia.org/api/rest_v1/media/math/render/svg/45a1de2e989e2630e3a29ef438367395af9fffa9")
-
+ ![](http://www.sciweavers.org/upload/Tex2Img_1503840704/render.png)
+```
 Because we require the importance weights π(m)i to be positive and we require the importance weights π (m) i for a single point i to sum up to 1 over all maps, direct optimization of the cost function w.r.t. the parameters π (m)i is tedious. To circumvent this problem, we represent the importance weights π(m)i in terms of unconstrained weight w(m)i (using an idea that is similar to that of softmax units) as follows:
 ```
+![](http://www.sciweavers.org/upload/Tex2Img_1503841227/render.png)
