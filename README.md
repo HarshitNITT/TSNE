@@ -37,7 +37,9 @@ The aim of Tsne is to model high dimensional vectors into low dimensional vector
 
 We need to minimize kullback divergance in order to have qij value similar to that of pij so that we can attain the internal structure of the map which is implemented using gradient descent
 ```
-![Image](http://www.sciweavers.org/upload/Tex2Img_1503832642/render.png)
+![](http://www.sciweavers.org/upload/Tex2Img_1503832642/render.png)
+
+![](http://www.sciweavers.org/upload/Tex2Img_1503837861/render.png)
 
 ## Mathematics Behind Multiple map Tsne
 ```
