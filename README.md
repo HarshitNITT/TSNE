@@ -39,8 +39,6 @@ for all m for a particular i the π(m)i summation must be 1.
 So we redefine qij as follows:
 
 
-
-
-
+    q i j = ( 1 + ∥ y i − y j ∥ 2 ) − 1 ∑ k ≠ m ( 1 + ∥ y k − y m ∥ 2 ) − 1 {\displaystyle q_{ij}={\frac {(1+\lVert \mathbf {y} _{i}-\mathbf {y} _{j}\rVert ^{2})^{-1}}{\sum _{k\neq m}(1+\lVert \mathbf {y} _{k}-\mathbf {y} _{m}\rVert ^{2})^{-1}}}} {\displaystyle q_{ij}={\frac {(1+\lVert \mathbf {y} _{i}-\mathbf {y} _{j}\rVert ^{2})^{-1}}{\sum _{k\neq m}(1+\lVert \mathbf {y} _{k}-\mathbf {y} _{m}\rVert ^{2})^{-1}}}} 
 Because we require the importance weights π(m)i to be positive and we require the importance weights π (m) i for a single point i to sum up to 1 over all maps, direct optimization of the cost function w.r.t. the parameters π (m)i is tedious. To circumvent this problem, we represent the importance weights π(m)i in terms of unconstrained weight w(m)i (using an idea that is similar to that of softmax units) as follows:
 ```
