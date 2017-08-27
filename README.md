@@ -29,12 +29,9 @@ Given n high Dimensional vectors  x 1 , … , x N  t-SNE first computes probabil
 ![](http://www.sciweavers.org/upload/Tex2Img_1503836873/render.png)
 
 ![](http://www.sciweavers.org/upload/Tex2Img_1503836941/render.png)
-
+```
 The similarity of datapoint x j  to datapoint x i  is the conditional probability, p j | i , that x i would pick x j  as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at x i.
 Since we are only interested in pairwise similarities between points, t-SNE sets p ii=0.
-```
-```
-
 ```
 ```
 The aim of Tsne is to model high dimensional vectors into low dimensional vectors such that similarity between two points qij which represent similarity in the low dimensional space of the counterparts yi and yj in low dimwnsional space. The error between the input similarities pij and their counterparts in the low-dimensional map q ij is measured by means of the Kullback-Leibler divergence between the distributions.
