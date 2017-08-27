@@ -78,7 +78,35 @@ def computeErrorForLineGivenPoints(b, m, points):
     for i in range(0, len(points)):
         totalError += (points[i].y - (m * points[i].x + b)) ** 2
     return totalError / float(len(points))
-
-
-
 ```
+Suppose we take an arbitrary value of m and b  and we calculate the value of error function as arbitrary. We have to minimize this error function so that we get particular value of m and b for which line fits the best. we Calculate this m and b by gradient Descent.
+The Error function would look something like That:
+
+![](https://spin.atomicobject.com/wp-content/uploads/gradient_descent_error_surface.png)
+
+We will take arbitrary value of m,b and move downhill to the global minima.
+```
+To run gradient descent on this error function, we first need to compute its gradient. The gradient will act like a compass and always point us downhill. To compute it, we will need to differentiate our error function. Since our function is defined by two parameters (m and b), we will need to compute a partial derivative for each. These derivatives work out to be:
+```
+![](https://spin.atomicobject.com/wp-content/uploads/linear_regression_gradient1.png)
+We can initialize our search to start at any pair of m and b values (i.e., any line) and let the gradient descent algorithm march downhill on our error function towards the best line. Each iteration will update m and b to a line that yields slightly lower error than the previous iteration.
+```python
+def stepGradient(b_current, m_current, points, learningRate):
+    b_gradient = 0
+    m_gradient = 0
+    N = float(len(points))
+    for i in range(0, len(points)):
+        b_gradient += -(2/N) * (points[i].y - ((m_current*points[i].x) + b_current))
+        m_gradient += -(2/N) * points[i].x * (points[i].y - ((m_current * points[i].x) + b_current))
+    new_b = b_current - (learningRate * b_gradient)
+    new_m = m_current - (learningRate * m_gradient)
+    return [new_b, new_m]
+```
+```
+The learningRate variable controls how large of a step we take downhill during each iteration. If we take too large of a step, we may step over the minimum. However, if we take small steps, it will require many iterations to arrive at the minimum.
+```
+Here Are the few snapshots of the gradient Descent Algorithm in action:
+
+
+
+![](https://spin.atomicobject.com/wp-content/uploads/gradient_descent_search1.png)
