@@ -1,4 +1,4 @@
-# Why Multiple Map Tsne
+## Why Multiple Map Tsne
 For visualising non metric data i.e the data which does not follow one of the following metric axioms:
 ```
 d(A,B)≥0,
