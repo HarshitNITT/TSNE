@@ -26,9 +26,11 @@ Given n high Dimensional vectors  x 1 , … , x N  t-SNE first computes probabil
 []("https://wikimedia.org/api/rest_v1/media/math/render/svg/2cc3ef3b4d237787cd82e5ef638d96d642a1e43d")
 The similarity of datapoint x j {\displaystyle x_{j}} x_{j} to datapoint x i {\displaystyle x_{i}} x_{i} is the conditional probability, p j | i {\displaystyle p_{j|i}} {\displaystyle p_{j|i}}, that x i {\displaystyle x_{i}} x_{i} would pick x j {\displaystyle x_{j}} x_{j} as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at x i.
 Since we are only interested in pairwise similarities between points, t-SNE sets p ii=0.
-![image](http://www.sciweavers.org/upload/Tex2Img_1503836598/render.png)
+```
+![](http://www.sciweavers.org/upload/Tex2Img_1503836598/render.png)
 ![image](http://www.sciweavers.org/upload/Tex2Img_1503836873/render.png)
 ![image](http://www.sciweavers.org/upload/Tex2Img_1503836941/render.png)
+```
 The aim of Tsne is to model high dimensional vectors into low dimensional vectors such that similarity between two points qij which represent similarity in the low dimensional space of the counterparts yi and yj in low dimwnsional space. The error between the input similarities pij and their counterparts in the low-dimensional map q ij is measured by means of the Kullback-Leibler divergence between the distributions.
 
 We need to minimize kullback divergance in order to have qij value similar to that of pij so that we can attain the internal structure of the map which is implemented using gradient descent
