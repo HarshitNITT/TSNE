@@ -29,8 +29,9 @@ Since we are only interested in pairwise similarities between points, t-SNE sets
 The aim of Tsne is to model high dimensional vectors into low dimensional vectors such that similarity between two points qij which represent similarity in the low dimensional space of the counterparts yi and yj in low dimwnsional space. The error between the input similarities pij and their counterparts in the low-dimensional map q ij is measured by means of the Kullback-Leibler divergence between the distributions.
 
 We need to minimize kullback divergance in order to have qij value similar to that of pij so that we can attain the internal structure of the map which is implemented using gradient descent
-![Image](http://www.sciweavers.org/upload/Tex2Img_1503832085/render.png)
 ```
+![Image](http://www.sciweavers.org/upload/Tex2Img_1503832085/render.png)
+
 ## Mathematics Behind Multiple map Tsne
 ```
 Multiple maps t-SNE constructs a collection of M maps, all of which contain N points (one for each of the N input objects). In each map with index m , a point with index i has a so-called importance weight π(m)i that measures the importance of point i in map m. Because of the probabilistic interpretation of our model, our weight function π(m)i must be positive for all i and m.
