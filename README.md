@@ -69,7 +69,7 @@ Consider the following Example:
 ![](https://spin.atomicobject.com/wp-content/uploads/points_for_linear_regression1.png)
 
 What we do is fit a arbitrary line with m and b values and calculate the error function as follows:
-![](http://www.sciweavers.org/upload/Tex2Img_1503843474/render.png)
+![](http://www.sciweavers.org/upload/Tex2Img_1503845632/render.png)
 
 Code Snippet Calculating the error Function is given as:
 ```python 
@@ -88,8 +88,10 @@ We will take arbitrary value of m,b and move downhill to the global minima.
 ```
 To run gradient descent on this error function, we first need to compute its gradient. The gradient will act like a compass and always point us downhill. To compute it, we will need to differentiate our error function. Since our function is defined by two parameters (m and b), we will need to compute a partial derivative for each. These derivatives work out to be:
 ```
-![](https://spin.atomicobject.com/wp-content/uploads/linear_regression_gradient1.png)
-We can initialize our search to start at any pair of m and b values (i.e., any line) and let the gradient descent algorithm march downhill on our error function towards the best line. Each iteration will update m and b to a line that yields slightly lower error than the previous iteration.
+![](http://www.sciweavers.org/upload/Tex2Img_1503845853/render.png)
+![](http://www.sciweavers.org/upload/Tex2Img_1503845937/render.png)
+
+>We can initialize our search to start at any pair of m and b values (i.e., any line) and let the gradient descent algorithm march downhill on our error function towards the best line. Each iteration will update m and b to a line that yields slightly lower error than the previous iteration.
 ```python
 def stepGradient(b_current, m_current, points, learningRate):
     b_gradient = 0
